@@ -9,6 +9,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { PanierComponent } from './panier/panier.component';
 import { PanierValiderComponent } from './panier-valider/panier-valider.component';
 import { PrestationComponent } from './prestation/prestation.component';
+import { PaiementComponent } from './paiement/paiement.component';
 
 export const routes: Routes = [
     {path: '', component:HomeComponent},
@@ -19,7 +20,7 @@ export const routes: Routes = [
     {path: 'user', component:EspaceUtilisateurComponent},
     {path: 'signin', component:InscriptionComponent},
     {path: 'panier', component:PanierComponent},
-    {path: 'panier', component:PanierComponent},
+    {path: 'paiement', component:PaiementComponent},
     {path: 'paniervalid', component:PanierValiderComponent},
     {path: 'prestation', component:PrestationComponent},
     

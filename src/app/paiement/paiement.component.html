@@ -1,1 +1,70 @@
-<p>paiement works!</p>
+<div style="text-align: center;">
+    <img src="/fondaccueil.svg" alt="fondaccueil" style="width: 1903px; margin: 0 auto;" />
+</div>
+  
+  <body>
+
+    <div class="payment-container">
+        <div class="payment-header">
+            Paiement en ligne
+        </div>
+    
+        <div class="center-align">
+            <img src="logo.svg" alt="Logo" class="payment-logo">
+            <div class="payment-total center-align">Montant total de la transaction : 95€</div>
+            <div class="payment-icons">
+                <img src="mastercard.svg.png" alt="MasterCard">
+                <img src="paypal.svg.png" alt="PayPal">
+                <img src="visa.svg.png" alt="Visa">
+            </div>
+        </div>
+    
+        <!-- Encadré gris -->
+        <div class="inner-box">
+            <form action="#!">
+                <label for="card_number">Numéro de carte</label>
+                <div class="input-field">
+                    <input id="card_number" type="text" class="validate" placeholder="1234 5678 9100">
+                </div>
+    
+                <div class="row">
+                    <div class="col s6">
+                        <label for="expiration_month">Date d'expiration</label>
+                        <div class="input-field">
+                            <input id="expiration_month" type="text" placeholder="12">
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="input-field">
+                            <input id="expiration_year" type="text" placeholder="2025" style="margin-top: 7%;">
+                        </div>
+                    </div>
+                </div>
+    
+                <label for="cvv">Cryptogramme</label>
+                <div class="input-field">
+                    <input id="cvv" type="text" placeholder="123">
+                    <span class="helper-text">Qu'est-ce que c'est?</span>
+                </div>
+    
+                <label for="card_name">Nom sur la carte</label>
+                <div class="input-field">
+                    <input id="card_name" type="text" placeholder="Mira Céline">
+                </div>
+            </form>
+        </div>
+    
+        <div class="button-container">
+            <button class="btn-large" type="submit" name="action">
+                <a href="paniervalid">
+                    Valider
+                </a>
+            </button>
+            <button class="btn-large" type="button">
+                <a href="panier">
+                    Annuler
+                </a>
+            </button>
+        </div>
+    </div>
+    

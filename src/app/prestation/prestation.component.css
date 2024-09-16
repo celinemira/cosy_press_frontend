@@ -1,0 +1,65 @@
+.responsive-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.responsive-header {
+    width: 90%;
+    max-width: 1000px;
+    padding: 15px;
+}
+
+/* Adjust margins for smaller screens */
+@media (max-width: 768px) {
+    .presta1 {
+        margin: 20px 10px;
+    }
+    
+    .responsive-header {
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .container-fluid {
+        padding: 0 10px;
+    }
+
+    .row {
+        margin: 20px 0;
+    }
+}
+
+/* Centrage des éléments <li> avec marge réduite entre l'image et le texte */
+.presta1 ul li,
+.container-fluid ul li {
+    margin: 10px auto; /* Réduction de la marge verticale */
+    padding: 15px;
+    text-align: center; /* Centrage du texte */
+    max-width: 800px; /* Largeur maximale pour les éléments de liste */
+}
+
+/* Réduction de l'espace entre l'image et le texte */
+.presta1 ul li img,
+.container-fluid ul li img {
+    margin-top: 5px; /* Réduction de l'espace au-dessus de l'image */
+    margin-bottom: 5px; /* Réduction de l'espace en dessous de l'image */
+}
+
+/* Ajustements pour la liste */
+.presta1 ul,
+.container-fluid ul {
+    padding-left: 0; /* Enlève le décalage par défaut de la liste */
+    list-style-position: inside; /* Les puces seront à l'intérieur et alignées avec le texte */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .presta1 ul li,
+    .container-fluid ul li {
+        padding: 10px;
+        margin: 10px auto; /* Réduction de la marge pour les petits écrans */
+        max-width: 100%; /* Pour occuper toute la largeur sur les petits écrans */
+    }
+}

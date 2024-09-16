@@ -1,5 +1,4 @@
 body {
-    background-color: #EAE6E6;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,7 +9,7 @@ body {
 .recap-container {
     background-color: #80cbc4;
     padding: 40px;
-    border-radius: 20px;
+    border-radius: 75px;
     max-width: 600px;
     width: 100%;
     text-align: center;
@@ -70,3 +69,4 @@ body {
 .btn-custom:hover {
     background-color: #ccc;
 }
+

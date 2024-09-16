@@ -1,34 +1,100 @@
 body {
-    background-color: #EAE6E6;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 75vh;
     margin: 0;
 }
+
 .contact-form-container {
     background-color: #80cbc4;
     padding: 40px;
     border-radius: 70px;
-    width: 550px;
+    width: 90%; /* Utiliser des pourcentages pour rendre la largeur fluide */
+    max-width: 600px; /* Largeur maximale pour les grands écrans */
     text-align: center;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
 }
-input[type="text"], input[type="email"], textarea {
+
+.input-field {
+    margin-bottom: 15px;
+}
+
+.input-field input, 
+.input-field textarea {
+    width: 100%; /* Prendre toute la largeur disponible */
     border-radius: 25px;
     border: 1px solid #111942;
     padding-left: 15px;
     background-color: white;
+    box-sizing: border-box; /* Assurer que padding ne dépasse pas la largeur */
 }
+
 textarea {
-    height: 200px;
+    height: 150px; /* Réduire la hauteur pour les petits écrans */
 }
+
+.input-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    text-align: left;
+}
+
 .btn-submit {
     background-color: white;
     color: black;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    padding: 0 30px;
+    border-radius: 25px;
+    border: none;
+    padding: 15px 0; /* Centrage vertical */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center; /* Centrage horizontal */
+    align-items: center; /* Centrage vertical */
+    width: 100%; /* Largeur fluide */
+    max-width: 200px; /* Largeur maximale pour grands écrans */
+    margin: 0 auto; /* Centrer le bouton dans le conteneur */
+    text-align: center;
 }
+
 .btn-submit:hover {
     background-color: #ccc;
+}
+
+/* Media Queries pour rendre la page responsive */
+
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 20px;
+        border-radius: 40px;
+        width: 95%;
+    }
+
+    .input-field input, 
+    .input-field textarea {
+        font-size: 14px;
+    }
+
+    .btn-submit {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    h3 {
+        font-size: 18px;
+    }
+
+    .input-field input,
+    .input-field textarea {
+        font-size: 12px;
+    }
+
+    .btn-submit {
+        font-size: 14px;
+        padding: 8px 0;
+    }
 }

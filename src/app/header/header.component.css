@@ -1,0 +1,9 @@
+@media only screen and (max-width: 600px) {
+    .brand-logo img {
+        width: 40px;
+    }
+
+    .sidenav img {
+        width: 30px;
+    }
+}

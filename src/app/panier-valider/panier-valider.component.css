@@ -1,0 +1,49 @@
+.container-custom {
+    background-color: #80cbc4;
+    padding: 40px;
+    border-radius: 70px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px; /* Ajoute de l'espace en bas */
+}
+
+.header {
+    background-color: #1a237e;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.recap {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+.recap-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+.recap-item:last-child {
+    border-bottom: none;
+}
+.total-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+.total-price {
+    background-color: #1a237e;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 10px;
+}
+.logo {
+    margin: 10px 0;
+}
