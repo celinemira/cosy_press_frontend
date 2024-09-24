@@ -70,3 +70,13 @@ body {
     background-color: #ccc;
 }
 
+/* Nouveau style pour les éléments du panier */
+.cart-item {
+    margin-bottom: 20px;
+}
+
+.recap-item span {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}

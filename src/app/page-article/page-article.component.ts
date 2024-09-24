@@ -13,7 +13,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 export class PageArticleComponent implements OnInit {
   lavage: boolean = true;
   repassage: boolean = true;
-  quantity: number = 1;
+  quantity: number = 0;
   unitPrice: number = 0; // Ce sera mis à jour avec les données de la catégorie
   depositDate: string = '';
 

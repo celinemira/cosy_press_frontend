@@ -10,13 +10,19 @@
     <div class="recap-container z-depth-2">
         <div class="recap-header">Récapitulatif de la commande</div>
 
-        <div *ngFor="let item of cartItems">
+        <div *ngFor="let item of cartItems" class="cart-item">
             <div class="recap-item">
                 <span><strong>{{ item.name }}</strong> x{{ item.quantity }}</span>
                 <span>{{ item.total }}€</span>
             </div>
             <div class="recap-item">
                 <span>Dépôt des articles: {{ item.date }}</span>
+            </div>
+            <div class="recap-item">
+                <span>Lavage : {{ item.lavage ? 'Oui' : 'Non' }}</span>
+            </div>
+            <div class="recap-item">
+                <span>Repassage : {{ item.repassage ? 'Oui' : 'Non' }}</span>
             </div>
         </div>
 
