@@ -10,22 +10,19 @@
     <div class="recap-container z-depth-2">
         <div class="recap-header">Récapitulatif de la commande</div>
 
-        <div class="recap-item">
-            <span><strong>Chemise</strong> x5</span>
-            <span>75€</span>
-        </div>
-        <div class="recap-item">
-            <span><strong>Pantalon</strong> x2</span>
-            <span>20€</span>
-        </div>
-
-        <div class="recap-item" style="border: none;">
-            <span>Dépôt des articles: 10/02/2025</span>
+        <div *ngFor="let item of cartItems">
+            <div class="recap-item">
+                <span><strong>{{ item.name }}</strong> x{{ item.quantity }}</span>
+                <span>{{ item.total }}€</span>
+            </div>
+            <div class="recap-item">
+                <span>Dépôt des articles: {{ item.date }}</span>
+            </div>
         </div>
 
         <div class="total-section">
-            <span class="total-label">Sous-total (7 articles):</span>
-            <span class="total-price">95€</span>
+            <span class="total-label">Sous-total ({{ cartItems.length }} articles):</span>
+            <span class="total-price">{{ getTotal() }}€</span>
         </div>
 
         <div class="btn-container">

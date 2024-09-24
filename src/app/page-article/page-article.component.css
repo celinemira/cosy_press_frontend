@@ -118,3 +118,27 @@ input[readonly] {
     text-align: center;
     width: 200px;
 }
+.buttons button.active {
+    background-color: #80cbc4;
+    color: white;
+}
+
+.quantity-btn {
+    padding: 10px;
+    border: 1px solid #333;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.quantity-btn:hover {
+    background-color: #ddd;
+}
+
+input[type="date"] {
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
