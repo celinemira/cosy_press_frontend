@@ -52,18 +52,57 @@ body {
     color: black;
     margin-top: -10px;
 }
+
 .btn-large {
+    display: flex; /* Utilisation de flexbox */
+    justify-content: center; /* Centre le texte horizontalement */
+    align-items: center; /* Centre le texte verticalement */
     border-radius: 20px;
     width: 45%;
-    background-color: white;
+    background-color: #80cbc4; /* Couleur de fond visible */
+    color: white; /* Couleur du texte */
+    font-weight: bold; /* Texte en gras */
+    padding: 15px; /* Espace autour du texte */
+    margin: 10px 0; /* Espace entre les boutons */
+    cursor: pointer; /* Curseur en forme de main */
+    border:none;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
 }
+  
+.btn-large[type="button"] {
+    background-color: #dc3545; /* Couleur différente pour le bouton Annuler */
+}
+  
+.btn-large:hover {
+    opacity: 0.9; /* Légère transparence au survol */
+}
+
+  
 .button-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Espace entre les deux boutons */
+    align-items: center;
+    width: 100%;
 }
+  
 .button-container .btn-large i {
-    vertical-align: middle;
+    vertical-align: middle; /* Aligne les icônes verticalement avec le texte */
 }
+  
+.error { /*Styles supplémentaires pour les messages d'erreur*/
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  
 
 .inner-box {
     background-color: #f0f0f0; /* Gris clair pour l'encadré */

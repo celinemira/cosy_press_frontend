@@ -2,16 +2,12 @@
     <img src="/fondaccueil.svg" alt="fondaccueil" style="width: 1903px; margin: 0 auto;" />
 </div>
   
-  <body>
-
+<body>
     <div class="payment-container">
-        <div class="payment-header">
-            Paiement en ligne
-        </div>
-    
+        <div class="payment-header">Paiement en ligne</div>
         <div class="center-align">
             <img src="logo.svg" alt="Logo" class="payment-logo">
-            <div class="payment-total center-align">Montant total de la transaction : 95€</div>
+            <div class="payment-total center-align">Montant total de la transaction : {{ totalAmount }}€</div>
             <div class="payment-icons">
                 <img src="mastercard.svg.png" alt="MasterCard">
                 <img src="paypal.svg.png" alt="PayPal">
@@ -19,52 +15,71 @@
             </div>
         </div>
     
-        <!-- Encadré gris -->
         <div class="inner-box">
-            <form action="#!">
-                <label for="card_number">Numéro de carte</label>
+            <form *ngIf="paiementForm" [formGroup]="paiementForm" (ngSubmit)="onSubmit()">
+                <!-- Numéro de carte -->
+                <label for="cardNumber">Numéro de carte</label>
                 <div class="input-field">
-                    <input id="card_number" type="text" class="validate" placeholder="1234 5678 9100">
+                    <input id="cardNumber" formControlName="cardNumber" type="text" placeholder="1234 5678 9100">
+                    <div *ngIf="paiementForm?.get('cardNumber')?.invalid && paiementForm?.get('cardNumber')?.touched" class="error">
+                        Le numéro de carte doit contenir 16 chiffres.
+                    </div>
                 </div>
     
+                <!-- Date d'expiration (Mois) -->
                 <div class="row">
                     <div class="col s6">
-                        <label for="expiration_month">Date d'expiration</label>
+                        <label for="expirationMonth">Date d'expiration (Mois)</label>
                         <div class="input-field">
-                            <input id="expiration_month" type="text" placeholder="12">
+                            <input id="expirationMonth" formControlName="expirationMonth" type="text" placeholder="12">
+                            <div *ngIf="paiementForm?.get('expirationMonth')?.invalid && paiementForm?.get('expirationMonth')?.touched" class="error">
+                                Mois invalide. Doit être entre 1 et 12.
+                            </div>
                         </div>
                     </div>
+    
+                    <!-- Date d'expiration (Année) -->
                     <div class="col s6">
+                        <label for="expirationYear">Date d'expiration (Année)</label>
                         <div class="input-field">
-                            <input id="expiration_year" type="text" placeholder="2025" style="margin-top: 7%;">
+                            <input id="expirationYear" formControlName="expirationYear" type="text" placeholder="2025">
+                            <div *ngIf="paiementForm?.get('expirationYear')?.invalid && paiementForm?.get('expirationYear')?.touched" class="error">
+                                Année invalide. Doit être l'année en cours ou plus.
+                            </div>
                         </div>
                     </div>
                 </div>
     
+                <!-- CVV -->
                 <label for="cvv">Cryptogramme</label>
                 <div class="input-field">
-                    <input id="cvv" type="text" placeholder="123">
+                    <input id="cvv" formControlName="cvv" type="text" placeholder="123">
+                    <div *ngIf="paiementForm?.get('cvv')?.invalid && paiementForm?.get('cvv')?.touched" class="error">
+                        Le CVV doit contenir 3 chiffres.
+                    </div>
                     <span class="helper-text">Qu'est-ce que c'est?</span>
                 </div>
     
-                <label for="card_name">Nom sur la carte</label>
+                <!-- Nom sur la carte -->
+                <label for="cardName">Nom sur la carte</label>
                 <div class="input-field">
-                    <input id="card_name" type="text" placeholder="Mira Céline">
+                    <input id="cardName" formControlName="cardName" type="text" placeholder="Mira Céline">
+                    <div *ngIf="paiementForm?.get('cardName')?.invalid && paiementForm?.get('cardName')?.touched" class="error">
+                        Le nom sur la carte est requis.
+                    </div>
                 </div>
+    
+                <!-- Boutons -->
+                <div class="button-container">
+                    <button class="btn-large" type="submit" [disabled]="paiementForm.invalid">Valider</button>
+                    <button class="btn-large" type="button" (click)="onCancel()">Annuler</button>
+                </div>
+
+                <div *ngIf="paymentErrorMessage" class="error-message">
+                    {{ paymentErrorMessage }}
+                  </div>
+                  
             </form>
         </div>
-    
-        <div class="button-container">
-            <button class="btn-large" type="submit" name="action">
-                <a href="paniervalid">
-                    Valider
-                </a>
-            </button>
-            <button class="btn-large" type="button">
-                <a href="panier">
-                    Annuler
-                </a>
-            </button>
-        </div>
     </div>
-    
+</body>

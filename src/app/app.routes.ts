@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { CategoryComponent } from './category/category.component';
@@ -10,6 +10,9 @@ import { PanierComponent } from './panier/panier.component';
 import { PanierValiderComponent } from './panier-valider/panier-valider.component';
 import { PrestationComponent } from './prestation/prestation.component';
 import { PaiementComponent } from './paiement/paiement.component';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export const routes: Routes = [
     {path: '', component:HomeComponent},
@@ -25,3 +28,12 @@ export const routes: Routes = [
     {path: 'prestation', component:PrestationComponent},
     
 ];
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes), // Initialisation des routes
+    HttpClientModule, // Ajout de HttpClientModule pour les requêtes HTTP
+    ReactiveFormsModule // Ajout de ReactiveFormsModule pour les formulaires réactifs
+    ],
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule { }
