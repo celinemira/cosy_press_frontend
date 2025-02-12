@@ -7,3 +7,10 @@
         width: 30px;
     }
 }
+
+.item_counter {
+  position:absolute;
+  top:-15px;
+  font-weight: bold;
+  padding-left:10px;
+}
