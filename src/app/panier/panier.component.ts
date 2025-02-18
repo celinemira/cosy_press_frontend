@@ -2,6 +2,7 @@ import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { Router } from '@angular/router';
+import {cardItem} from "../model/card_item.model";
 
 @Component({
   selector: 'app-panier',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   imports: [NgFor]
 })
 export class PanierComponent {
-  cartItems: any[] = [];
+  cartItems: cardItem[] = [];
 
   constructor(
     private cartService: CartService,
@@ -20,9 +21,7 @@ export class PanierComponent {
 
   ngOnInit(): void {
     const storedCart = localStorage.getItem('cart');
-    if (storedCart) {
-      this.cartItems = [JSON.parse(storedCart)];
-    }
+    this.cartItems = this.cartService.loadSessionCart();
   }
 
   // Calculer le total du panier
@@ -38,7 +37,7 @@ export class PanierComponent {
       console.log('Event or target is undefined');
     }
   }
-  
+
   // Stocker le panier et rediriger vers la page de paiement
   goToPayment() {
     this.cartService.setCartItems(this.cartItems);

@@ -1,15 +1,30 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {cardItem} from "../app/model/card_item.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private cartItems: any[] = [];
+  private cartItems: cardItem[] = [];
   private totalAmount: number = 0;
 
   // Stocker les éléments du panier
-  setCartItems(items: any[]) {
+  setCartItems(items: cardItem[]) {
     this.cartItems = items;
+    this.calculateTotal();
+  }
+
+  addCartItem(item: any) {
+    let found = false;
+    this.cartItems.map((row) => {
+      if (row.name === item.name) {
+        row.quantity = item.quantity;
+        found = true;
+      }
+    });
+    if (!found) {
+      this.cartItems.push(item);
+    }
     this.calculateTotal();
   }
 
@@ -32,5 +47,15 @@ export class CartService {
   clearCart() {
     this.cartItems = [];
     this.totalAmount = 0;
+  }
+
+  loadSessionCart(): cardItem[]
+  {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      this.cartItems = JSON.parse(storedCart);
+    }
+
+    return this.cartItems;
   }
 }

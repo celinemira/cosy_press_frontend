@@ -1,70 +1,68 @@
 <div style="text-align: center;">
-    <img src="/fondaccueil.svg" alt="fondaccueil" style="width: 100%; max-width: 1903px; margin: 0 auto;" />
+  <img src="/fondaccueil.svg" alt="fondaccueil" style="width: 100%; max-width: 1903px; margin: 0 auto;"/>
 </div>
 
 <h3 class="align-center" style="text-align: center; margin: 20px 30px 20px; color: #111942;">
-    Créer un compte
+  Créer un compte
 </h3>
 
 <body>
-    <div class="registration-form-container z-depth-2">
-        <form action="#">
-            <div class="input-field">
-                <input id="nom" type="text" class="validate" required>
-                <label for="nom">Nom</label>
-            </div>
-            <div class="input-field">
-                <input id="prenom" type="text" class="validate" required>
-                <label for="prenom">Prénom</label>
-            </div>
-            <div class="input-field">
-                <input id="adresse" type="text" class="validate" required>
-                <label for="adresse">Adresse</label>
-            </div>
-            <div class="input-field">
-                <input id="code_postal" type="text" class="validate" required>
-                <label for="code_postal">Code Postal</label>
-            </div>
-            <div class="input-field">
-                <input id="ville" type="text" class="validate" required>
-                <label for="ville">Ville</label>
-            </div>
-            <div class="input-field">
-                <input id="telephone" type="text" class="validate" required>
-                <label for="telephone">Téléphone</label>
-            </div>
-            <div class="input-field">
-                <input id="email" type="email" class="validate" required>
-                <label for="email">Mail</label>
-            </div>
-            <div class="input-field">
-                <input id="password" type="password" class="validate" required>
-                <label for="password">Mot de Passe</label>
-            </div>
-            <div class="input-field">
-                <input id="confirm_password" type="password" class="validate" required>
-                <label for="confirm_password">Confirmer le Mot de Passe</label>
-            </div>
-
-            <!-- <div class="checkbox-field">
-                <label for="terms_conditions">
-                <input type="checkbox" id="terms_conditions" class="filled-in" required>
-                    J'accepte les <a hrfe="#">Conditions générales d'utilisation</a>
-                </label>
-            </div>
-
-            <div class="checkbox-field">
-                <label for="data_privacy">
-                    <input type="checkbox" id="data_privacy" class="filled-in" required>
-                    J'accepte les <a href="#">traitements relatifs à mes données personnelles</a>
-                </label>
-            </div> -->
-
-            <button class="btn btn-submit waves-effect waves-light" type="submit" name="action">
-                <a href="user">
-                    S'inscrire
-                </a>
-            </button>
-        </form>
+<div class="registration-form-container z-depth-2">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="input-field">
+      <input id="nom" type="text" class="validate" required formControlName="nom">
+      <label for="nom">Nom</label>
     </div>
+    <div class="input-field">
+      <input id="prenom" type="text" class="validate" required formControlName="prenom">
+      <label for="prenom">Prénom</label>
+    </div>
+    <div class="input-field">
+      <input id="adresse" type="text" class="validate" required formControlName="adresse">
+      <label for="adresse">Adresse</label>
+    </div>
+    <div class="input-field">
+      <input id="code_postal" type="text" class="validate" required formControlName="code_postal">
+      <label for="code_postal">Code Postal</label>
+    </div>
+    <div class="input-field">
+      <input id="ville" type="text" class="validate" required formControlName="ville">
+      <label for="ville">Ville</label>
+    </div>
+    <div class="input-field">
+      <input id="telephone" type="text" class="validate" required formControlName="telephone">
+      <label for="telephone">Téléphone</label>
+    </div>
+    <div class="input-field">
+      <input id="email" type="email" class="validate" required formControlName="email">
+      <label for="email">Mail</label>
+    </div>
+    <div class="input-field">
+      <input id="password" type="password" class="validate" required formControlName="password">
+      <label for="password">Mot de Passe</label>
+    </div>
+    <div class="input-field">
+      <input id="confirm_password" type="password" class="validate" required formControlName="confirm_password">
+      <label for="confirm_password">Confirmer le Mot de Passe</label>
+    </div>
+
+    <!-- <div class="checkbox-field">
+        <label for="terms_conditions">
+        <input type="checkbox" id="terms_conditions" class="filled-in" required>
+            J'accepte les <a hrfe="#">Conditions générales d'utilisation</a>
+        </label>
+    </div>
+
+    <div class="checkbox-field">
+        <label for="data_privacy">
+            <input type="checkbox" id="data_privacy" class="filled-in" required>
+            J'accepte les <a href="#">traitements relatifs à mes données personnelles</a>
+        </label>
+    </div> -->
+
+    <button class="btn btn-submit waves-effect waves-light" type="submit">
+      S'inscrire
+    </button>
+  </form>
+</div>
 </body>

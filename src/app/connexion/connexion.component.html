@@ -11,12 +11,12 @@
         <form action="#!">
             <div class="input-field">
                 <label for="email">Email</label>
-                <input id="email" type="email" class="validate" required>
+                <input id="email" name="email" type="email" class="validate" required [(ngModel)]="loginObject.email">
             </div>
 
             <div class="input-field">
                 <label for="password">Mot de passe</label>
-                <input id="password" type="password" class="validate" required>
+                <input id="password" name="password" type="password" class="validate" required [(ngModel)]="loginObject.password">
             </div>
 
             <a href="#!" class="forgot-password">Mot de passe oublié ?</a>
@@ -34,10 +34,8 @@
                         Créer un compte
                     </a>
                 </button>
-                <button class="btn submit-button" type="submit">
-                    <a href="user">
-                        Se connecter
-                    </a>
+                <button class="btn submit-button" type="submit" (click)="onLogin()">
+                  Se connecter
                 </button>
             </div>
         </form>

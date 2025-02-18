@@ -1,7 +1,8 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import {CommonModule} from '@angular/common';
+import {Component, inject, OnInit} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {ActivatedRoute, RouterModule} from '@angular/router';
+import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: 'app-page-article',
@@ -20,7 +21,10 @@ export class PageArticleComponent implements OnInit {
   itemName: string = ''; // Nom de l'article
   itemImage: string = ''; // Image de l'article
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {
+  }
+
+  cartService = inject(CartService);
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -28,6 +32,8 @@ export class PageArticleComponent implements OnInit {
       this.unitPrice = +params['price'];
       this.itemImage = params['img'];
     });
+
+    this.cartService.loadSessionCart();
   }
 
   setOption(option: string, value: boolean): void {
@@ -55,7 +61,11 @@ export class PageArticleComponent implements OnInit {
       date: this.depositDate,
       image: this.itemImage
     };
-    localStorage.setItem('cart', JSON.stringify(cartItem));
+
+    alert('addd');
+
+    this.cartService.addCartItem(cartItem);
+    localStorage.setItem('cart', JSON.stringify(this.cartService.getCartItems()));
     alert("Article ajouté au panier avec succès !");
   }
 }
