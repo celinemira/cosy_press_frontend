@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://127.0.0.1:45989",
+    "target": "https://back.pokichou.fr",
     "secure": false,
     "changeOrigin": true,
     "loglevel": "debug"

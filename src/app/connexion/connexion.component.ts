@@ -30,7 +30,7 @@ export class ConnexionComponent {
     this.auth_service.login(this.loginObject.email, this.loginObject.password).subscribe(
       (data: any) => {
         if (this.auth_service.isLoggedIn()) {
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/user']);
         } else {
           alert('erreur de connexion')
         }
